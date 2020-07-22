@@ -1,6 +1,7 @@
 unit DelphiZXingQRCode;
 
-// ZXing QRCode port to Delphi, by Debenu Pty Ltd (www.debenu.com)
+// ZXing QRCode port to Delphi, by Debenu Pty Ltd
+// www.debenu.com
 
 // Original copyright notice
 (*
@@ -1617,6 +1618,9 @@ var
   UTF8Version: AnsiString;
 begin
   SetLength(Bytes, 0);
+
+  {$ifdef VER150}
+
   if (EncodeOptions = 3) then
   begin
     SetLength(Bytes, Length(Content));
@@ -1645,6 +1649,18 @@ begin
       Move(UTF8Version[1], Bytes[0], Length(UTF8Version));
     end;
   end;
+
+  {$else}
+  if (EncodeOptions = 3) then
+  begin
+    SetLength(Bytes, Length(Content));
+    for I := 1 to Length(Content) do
+    begin
+      Bytes[I - 1] := Ord(Content[I]) and $FF;
+    end;
+  end;
+  {$endif}
+  
   for I := 0 to Length(Bytes) - 1 do
   begin
     Bits.AppendBits(Bytes[I], 8);
