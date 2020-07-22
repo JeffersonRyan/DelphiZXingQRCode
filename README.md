@@ -1,7 +1,7 @@
 Notas sobre este fork
 
 Aperfeiçoei o demo, incluindo opções como gerar vcard, salvar como JPG e copiar para o clipboard.
-Removi a opção de gerar como UTF-8 para melhor compatibilizar com o Delphi 5, mas não fiz as edições necessárias na unit em \source. Do jeito que está funciona sem problemas a partir do Delphi 7. 
+Compatibilizei com o Delphi 5, suprimindo as opções relacionadas com UTF-8 ao compilar em versões anteriores ao Delphi 7
 
 
 DelphiZXingQRCode
