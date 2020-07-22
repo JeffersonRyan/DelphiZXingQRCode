@@ -1,3 +1,8 @@
+Notas sobre este fork
+
+Aperfeiçoei o demo, incluindo opções como gerar vcard, salvar como JPG e copiar para o clipboard
+
+
 DelphiZXingQRCode
 =================
 
