@@ -1,11 +1,11 @@
 object Form1: TForm1
-  Left = 420
-  Top = 127
+  Left = 529
+  Top = 141
   BorderIcons = [biSystemMenu, biMinimize]
   BorderStyle = bsSingle
   Caption = 'Delphi port of ZXing QRCode'
   ClientHeight = 726
-  ClientWidth = 988
+  ClientWidth = 976
   Color = clBtnFace
   Constraints.MinHeight = 320
   Constraints.MinWidth = 550
@@ -16,13 +16,14 @@ object Form1: TForm1
   Font.Style = []
   OldCreateOrder = False
   Position = poScreenCenter
+  OnClose = FormClose
   OnCreate = FormCreate
   OnDestroy = FormDestroy
   PixelsPerInch = 96
   TextHeight = 13
   object Label1: TLabel
     Left = 8
-    Top = 90
+    Top = 130
     Width = 67
     Height = 13
     Caption = 'Texto Livre:'
@@ -34,8 +35,8 @@ object Form1: TForm1
     ParentFont = False
   end
   object Label2: TLabel
-    Left = 9
-    Top = 477
+    Left = 137
+    Top = 13
     Width = 67
     Height = 13
     Caption = 'Codificação:'
@@ -47,8 +48,8 @@ object Form1: TForm1
     ParentFont = False
   end
   object Label3: TLabel
-    Left = 9
-    Top = 661
+    Left = 137
+    Top = 61
     Width = 52
     Height = 13
     Caption = 'Quiet zone'
@@ -68,49 +69,49 @@ object Form1: TForm1
   end
   object Label5: TLabel
     Left = 8
-    Top = 368
+    Top = 376
     Width = 42
     Height = 13
     Caption = 'Telefone'
   end
   object Label6: TLabel
     Left = 24
-    Top = 344
+    Top = 352
     Width = 26
     Height = 13
     Caption = 'Título'
   end
   object Label7: TLabel
     Left = 23
-    Top = 320
+    Top = 328
     Width = 27
     Height = 13
     Caption = 'Nome'
   end
   object Label8: TLabel
     Left = 26
-    Top = 392
+    Top = 400
     Width = 24
     Height = 13
     Caption = 'email'
   end
   object Label9: TLabel
     Left = 28
-    Top = 440
+    Top = 448
     Width = 22
     Height = 13
     Caption = 'Foto'
   end
   object Label10: TLabel
     Left = 26
-    Top = 416
+    Top = 424
     Width = 19
     Height = 13
     Caption = 'URL'
   end
   object Label11: TLabel
     Left = 8
-    Top = 296
+    Top = 304
     Width = 41
     Height = 13
     Caption = 'VCARD:'
@@ -121,9 +122,36 @@ object Form1: TForm1
     Font.Style = [fsBold]
     ParentFont = False
   end
+  object Label12: TLabel
+    Left = 8
+    Top = 483
+    Width = 30
+    Height = 13
+    Caption = 'WIFI:'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object Label13: TLabel
+    Left = 16
+    Top = 528
+    Width = 29
+    Height = 13
+    Caption = 'senha'
+  end
+  object Label14: TLabel
+    Left = 23
+    Top = 504
+    Width = 23
+    Height = 13
+    Caption = 'SSID'
+  end
   object cmbEncoding: TComboBox
-    Left = 9
-    Top = 496
+    Left = 137
+    Top = 32
     Width = 97
     Height = 21
     Style = csDropDownList
@@ -137,8 +165,8 @@ object Form1: TForm1
       'ISO-8859-1')
   end
   object edtQuietZone: TEdit
-    Left = 9
-    Top = 680
+    Left = 137
+    Top = 80
     Width = 32
     Height = 21
     TabOrder = 1
@@ -147,63 +175,57 @@ object Form1: TForm1
   end
   object EditTel1: TEdit
     Left = 56
-    Top = 368
+    Top = 376
     Width = 215
     Height = 21
     TabOrder = 2
-    Text = '81 9 0000 0000'
     OnChange = EditNomeChange
   end
-  object EditTitle: TEdit
+  object EditTitulo: TEdit
     Left = 56
-    Top = 344
+    Top = 352
     Width = 215
     Height = 21
     TabOrder = 3
-    Text = 'Programador'
     OnChange = EditNomeChange
   end
   object EditNome: TEdit
     Left = 56
-    Top = 320
+    Top = 328
     Width = 215
     Height = 21
     TabOrder = 4
-    Text = 'Jefferson Ryan'
     OnChange = EditNomeChange
   end
   object EditEmail: TEdit
     Left = 56
-    Top = 392
+    Top = 400
     Width = 215
     Height = 21
     TabOrder = 5
-    Text = 'xxxxxx@ryan.com.br'
     OnChange = EditNomeChange
   end
-  object EditPhoto: TEdit
+  object EditFoto: TEdit
     Left = 56
-    Top = 440
+    Top = 448
     Width = 215
     Height = 21
     TabOrder = 6
-    Text = 'http://ryan.com.br/imagens/avatar.jpg'
     OnChange = EditNomeChange
   end
   object EditURL: TEdit
     Left = 56
-    Top = 416
+    Top = 424
     Width = 215
     Height = 21
     TabOrder = 7
-    Text = 'ryan.com.br'
     OnChange = EditNomeChange
   end
   object rgpModo: TRadioGroup
     Left = 8
     Top = 16
-    Width = 265
-    Height = 65
+    Width = 121
+    Height = 89
     Caption = 'Modo: '
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
@@ -213,7 +235,8 @@ object Form1: TForm1
     ItemIndex = 1
     Items.Strings = (
       'VCARD'
-      'TEXTO LIVRE')
+      'TEXTO LIVRE'
+      'WIFI')
     ParentFont = False
     TabOrder = 8
     OnClick = rgpModoClick
@@ -229,44 +252,22 @@ object Form1: TForm1
   end
   object MemoTextoLivre: TMemo
     Left = 8
-    Top = 112
+    Top = 152
     Width = 265
-    Height = 153
-    Lines.Strings = (
-      '17/07/2020 09:56; Fórmula R6.100-28; SACOLA '
-      '255; Registro 1512; EMBRA 100,20; CARA '
-      '200,45; NF02 45,12, SBEL1 250,32; AGUA '
-      '100,00; SOL 45,12')
+    Height = 129
     ScrollBars = ssVertical
     TabOrder = 10
     OnChange = MemoTextoLivreChange
   end
-  object Memo1: TMemo
-    Left = 9
-    Top = 520
-    Width = 263
-    Height = 129
-    Lines.Strings = (
-      'Alphanumeric: Produz um código menos complexo '
-      'e mais fácil de decodificar, porém só suporta um '
-      'subconjunto da tabela ASCII com cerca '
-      'de 44 caracteres: números, o alfabeto maíusculo e '
-      'os caracteres $,:, ,*,+,-,.,/ e %'
-      ''
-      'ISO-8859-1: Suporta toda a tabela ASCII e mais, '
-      'pois inclui acentuação, mas gera um '
-      'código notávelmente mais difícil de decodificar.')
-    TabOrder = 11
-  end
   object udQuietZone: TUpDown
-    Left = 41
-    Top = 680
+    Left = 169
+    Top = 80
     Width = 16
     Height = 21
     Associate = edtQuietZone
     Min = 0
     Position = 4
-    TabOrder = 12
+    TabOrder = 11
     Wrap = False
   end
   object Panel1: TPanel
@@ -278,7 +279,7 @@ object Form1: TForm1
     BevelOuter = bvSpace
     BorderWidth = 2
     BorderStyle = bsSingle
-    TabOrder = 13
+    TabOrder = 12
     object Image1: TImage
       Left = 4
       Top = 4
@@ -294,13 +295,52 @@ object Form1: TForm1
     Width = 134
     Height = 25
     Caption = 'Copiar para o clipboard'
-    TabOrder = 14
+    TabOrder = 13
     OnClick = btnCopiarClipboardClick
+  end
+  object editSenha: TEdit
+    Left = 56
+    Top = 528
+    Width = 215
+    Height = 21
+    TabOrder = 14
+    OnChange = EditSSIDChange
+  end
+  object EditSSID: TEdit
+    Left = 56
+    Top = 504
+    Width = 215
+    Height = 21
+    TabOrder = 15
+    OnChange = EditSSIDChange
+  end
+  object rgpCripto: TRadioGroup
+    Left = 56
+    Top = 552
+    Width = 217
+    Height = 41
+    Caption = 'Criptografia'
+    Columns = 2
+    ItemIndex = 0
+    Items.Strings = (
+      'WPA'
+      'WEP')
+    TabOrder = 16
+    OnClick = rgpCriptoClick
+  end
+  object chkOculto: TCheckBox
+    Left = 56
+    Top = 600
+    Width = 97
+    Height = 17
+    Caption = 'SSID Oculto'
+    TabOrder = 17
+    OnClick = chkOcultoClick
   end
   object SavePictureDialog1: TSavePictureDialog
     DefaultExt = '*.jpg'
     Filter = 'JPEG Image File (*.jpg)|*.jpg|JPEG Image File (*.jpeg)|*.jpeg'
-    Left = 104
-    Top = 672
+    Left = 240
+    Top = 296
   end
 end
