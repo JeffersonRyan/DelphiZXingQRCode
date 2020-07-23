@@ -1,6 +1,6 @@
-Notas sobre este fork
+**Notas sobre este fork**
 
-Aperfeiçoei o demo, incluindo opções como gerar vcard, salvar como JPG e copiar para o clipboard.
+Aperfeiçoei o demo, incluindo opções como gerar vcard, salvar como JPG e copiar para o clipboard. Também salvar e carregar parâmetros de um arquivo INI.
 Compatibilizei com o Delphi 5, suprimindo as opções relacionadas com UTF-8 ao compilar em versões anteriores ao Delphi 7
 
 ![imagem do demo](https://automalabs.com.br/imagens/qrcode_testApp.jpg)
