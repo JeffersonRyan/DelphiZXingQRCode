@@ -3,6 +3,11 @@
 Aperfeiçoei o demo, incluindo opções como gerar vcard, salvar como JPG e copiar para o clipboard. Também salvar e carregar parâmetros de um arquivo INI.
 Compatibilizei com o Delphi 5, suprimindo as opções relacionadas com UTF-8 ao compilar em versões anteriores ao Delphi 7
 
+**Problemas conhecidos**
+
+O campo PHOTO do vCard não está funcionando
+
+
 ![imagem do demo](https://automalabs.com.br/imagens/qrcode_testApp.jpg)
 
 DelphiZXingQRCode
