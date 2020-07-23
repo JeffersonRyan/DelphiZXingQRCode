@@ -44,7 +44,7 @@ type
     Label14: TLabel;
     editSenha: TEdit;
     EditSSID: TEdit;
-    rgpCripto: TRadioGroup;
+    rgpAuth: TRadioGroup;
     chkOculto: TCheckBox;
     procedure FormDestroy(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -58,7 +58,7 @@ type
     procedure btnCopiarClipboardClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure EditSSIDChange(Sender: TObject);
-    procedure rgpCriptoClick(Sender: TObject);
+    procedure rgpAuthClick(Sender: TObject);
     procedure chkOcultoClick(Sender: TObject);
   private
     QRCodeBitmap: TBitmap;
@@ -177,7 +177,12 @@ begin
 
     if rgpModo.itemindex=2 then
       begin
-        sWiFiString:= 'WIFI:S:'+escapeText(editSSID.text)+';P:'+escapeText(editSenha.text)+';H:'+sOculto+';T:'+rgpCripto.items[rgpCripto.itemindex]+';';
+        sWiFiString:= 'WIFI:S:'+escapeText(editSSID.text)+';H:'+sOculto+';';
+
+        //Você não precisa especificar a autenticação nem (obviamente) a senha se não estiver usando uma
+        if rgpAuth.itemIndex<2 then
+         sWiFiString:= sWiFiString+'P:'+escapeText(editSenha.text)+';T:'+rgpAuth.items[rgpAuth.itemindex]+';';
+
         QRCode.Data := sWiFiString;
         //Formato:
         //QrCode.data:='WIFI:T:WPA;S:Valar Morghulis;P:Valar Dohaeris;H:false';
@@ -275,7 +280,7 @@ begin
 
       WriteString('WIFI', 'ssid', editSSID.text);
       WriteString('WIFI', 'senha', editSenha.text);
-      WriteInteger('WIFI', 'cripto', rgpCripto.itemindex);
+      WriteInteger('WIFI', 'cripto', rgpAuth.itemindex);
       WriteBool('WIFI', 'oculto', chkOculto.checked);
 
      WriteString('Geral', 'textolivre', MemoTextoLivre.text);
@@ -312,7 +317,7 @@ Begin
 
       editSSID.text:=ReadString('WIFI', 'ssid', '');
       editSenha.text:=ReadString('WIFI', 'senha', '');
-      rgpCripto.itemindex:=ReadInteger('WIFI', 'cripto', 0);
+      rgpAuth.itemindex:=ReadInteger('WIFI', 'cripto', 0);
       chkOculto.checked:=ReadBool('WIFI', 'oculto', false);
 
      MemoTextoLivre.text:=ReadString('Geral', 'textolivre', '');
@@ -336,7 +341,7 @@ begin
   Update;
 end;
 
-procedure TForm1.rgpCriptoClick(Sender: TObject);
+procedure TForm1.rgpAuthClick(Sender: TObject);
 begin
   Update;
 end;

@@ -314,23 +314,24 @@ object Form1: TForm1
     TabOrder = 15
     OnChange = EditSSIDChange
   end
-  object rgpCripto: TRadioGroup
+  object rgpAuth: TRadioGroup
     Left = 56
     Top = 552
     Width = 217
-    Height = 41
-    Caption = 'Criptografia'
+    Height = 49
+    Caption = 'Auth: '
     Columns = 2
     ItemIndex = 0
     Items.Strings = (
       'WPA'
-      'WEP')
+      'WEP'
+      'NENHUMA')
     TabOrder = 16
-    OnClick = rgpCriptoClick
+    OnClick = rgpAuthClick
   end
   object chkOculto: TCheckBox
     Left = 56
-    Top = 600
+    Top = 608
     Width = 97
     Height = 17
     Caption = 'SSID Oculto'
