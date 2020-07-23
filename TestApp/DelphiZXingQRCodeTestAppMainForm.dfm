@@ -37,9 +37,9 @@ object Form1: TForm1
   object Label2: TLabel
     Left = 137
     Top = 13
-    Width = 67
+    Width = 64
     Height = 13
-    Caption = 'CodificaÃ§Ã£o:'
+    Caption = 'Codificação'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -11
@@ -69,42 +69,42 @@ object Form1: TForm1
   end
   object Label5: TLabel
     Left = 8
-    Top = 376
+    Top = 379
     Width = 42
     Height = 13
     Caption = 'Telefone'
   end
   object Label6: TLabel
     Left = 24
-    Top = 352
+    Top = 357
     Width = 26
     Height = 13
-    Caption = 'TÃ­tulo'
+    Caption = 'Título'
   end
   object Label7: TLabel
     Left = 23
-    Top = 328
+    Top = 331
     Width = 27
     Height = 13
     Caption = 'Nome'
   end
   object Label8: TLabel
     Left = 26
-    Top = 400
+    Top = 403
     Width = 24
     Height = 13
     Caption = 'email'
   end
   object Label9: TLabel
     Left = 28
-    Top = 448
+    Top = 451
     Width = 22
     Height = 13
     Caption = 'Foto'
   end
   object Label10: TLabel
-    Left = 26
-    Top = 424
+    Left = 31
+    Top = 427
     Width = 19
     Height = 13
     Caption = 'URL'
@@ -136,15 +136,15 @@ object Form1: TForm1
     ParentFont = False
   end
   object Label13: TLabel
-    Left = 16
-    Top = 528
+    Left = 21
+    Top = 532
     Width = 29
     Height = 13
     Caption = 'senha'
   end
   object Label14: TLabel
-    Left = 23
-    Top = 504
+    Left = 27
+    Top = 508
     Width = 23
     Height = 13
     Caption = 'SSID'
